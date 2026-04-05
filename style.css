@@ -7,9 +7,10 @@
 
 /* body全体 */
 body {
-    font-family: "Yu Gothic", sans-serif;
-    background: #fffbe0; /* 薄い黄色ベース */
+    font-family: "Noto Sans JP", "Noto Sans Rounded JP", sans-serif;
+    background: #fffdf7; /* 薄い黄色ベース */
     color: #3b2e1c;
+    font-size: 1.15rem;
     line-height: 1.8;
     position: relative;
 }
@@ -37,6 +38,18 @@ header a:hover {
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
 }
 
+/* 背景用ピカチュウタイル */
+.pikachu-bg {
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(255, 238, 170, 0.06) 0px,
+        rgba(255, 238, 170, 0.06) 40px,
+        rgba(255, 240, 200, 0.04) 40px,
+        rgba(255, 240, 200, 0.04) 80px
+    );
+}
+
+
 /* メイン記事 */
 main {
     max-width: 900px;
@@ -50,11 +63,14 @@ main {
 
 /* 見出し */
 h1 {
-    font-size: 2rem;
-    color: #f5c542; /* 黄色ベースでピカチュウっぽく */
-    margin-bottom: 20px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fd7676;
     text-align: center;
+    margin-bottom: 30px;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
+
 
 h2 {
     font-size: 1.4rem;
@@ -70,8 +86,7 @@ h3 {
 
 /* 段落 */
 p {
-    margin: 0 0 16px;
-    line-height: 1.7;
+    margin-bottom: 16px;
 }
 
 /* 強調 */
@@ -80,6 +95,69 @@ span[style*="font-weight: bold"] {
     background: rgba(255, 230, 150, 0.3);
     padding: 2px 4px;
     border-radius: 4px;
+}
+
+/* 目次 */
+/* 目次全体ボックス */
+.toc {
+    margin: 25px 0 35px;
+    padding: 20px 25px;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(4px);
+    border-radius: 16px;
+    box-shadow: 0 0 12px rgba(255, 200, 0, 0.25);
+    border-left: 4px solid #f5c542; /* ピカチュウイメージの黄色ライン */
+}
+
+/* 目次タイトル */
+.toc-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #f5c542;
+    margin-bottom: 12px;
+}
+
+/* リンク一覧 */
+.toc a {
+    display: block;
+    margin: 6px 0;
+    padding: 8px 12px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #3b2e1c;
+    border-radius: 10px;
+    
+    /* ピカチュウ黄色の優しいハイライト */
+    background: rgba(255, 235, 150, 0.3);
+    transition: all 0.25s ease;
+}
+
+/* ホバー時（ふわっと光る） */
+.toc a:hover {
+    background: rgba(255, 235, 150, 0.55);
+    color: #fd7676; /* h2 見出しと同じ赤 */
+    transform: translateX(4px); /* 少しだけ右に動いて“選んだ感” */
+}
+
+/* スクロール位置調整（固定ヘッダー対策） */
+h2, h3, h1 {
+    scroll-margin-top: 90px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* 目次も指で押しやすく */
+    .toc a {
+        padding: 10px 14px;
+        font-size: 1.1rem;
+    }
+
+.center {
+  display: block;
+  margin: 0 auto;
+  width: 80%; /* 必要なら調整 */
 }
 
 @media (max-width: 600px) {
@@ -106,4 +184,3 @@ span[style*="font-weight: bold"] {
         font-size: 1.2rem;
     }
 }
-
